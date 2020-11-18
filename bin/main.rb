@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
-
 # rubocop: disable Metrics/MethodLength
 # rubocop: disable Metrics/AbcSize
 require 'pry'
