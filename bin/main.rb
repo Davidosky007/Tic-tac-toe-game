@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
-# rubocop: disable Metrics/MethodLength
-# rubocop: disable Metrics/AbcSize
+
 require 'pry'
 board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 def display_board(board)
@@ -35,5 +34,4 @@ end
 
 p draw_welcome
 p display_board(board)
-# rubocop: enable Metrics/MethodLength
-# rubocop: enable Metrics/AbcSize
+
