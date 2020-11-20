@@ -1,3 +1,4 @@
+# Ths is Class Player
 class Player
   attr_reader :name, :symbol
 
@@ -6,7 +7,7 @@ class Player
     @symbol = symbol
   end
 
-def switch_player(current_player, opponent)
+  def switch_player(current_player, opponent)
     current_player == self ? opponent : self
   end
 end

@@ -1,5 +1,6 @@
+# Class for Game
 class Game
-   def display_board(board)
+  def display_board(board)
     puts ''
     puts " #{board[0]} | #{board[1]} | #{board[2]} "
     puts '--- --- ---'
@@ -32,50 +33,49 @@ class Game
     puts ''
   end
 
-  
-def validate_name(name)
-  loop do
-    break unless name.strip == ''
+  def validate_name(name)
+    loop do
+      break unless name.strip == ''
 
-    print 'Blank can not be used . please enter your name: '
-    name = gets.chomp
+      print 'Blank can not be used . please enter your name: '
+      name = gets.chomp
+    end
+    name
   end
-  name
-end
 
-def player_name
-  puts 'please enter your name player 1:'
-  player1 = gets.chomp
-  player1 = validate_name(player1)
-  puts 'please enter your name player 2'
-  player2 = gets.chomp
-  player2 = validate_name(player2)
-  [player1, player2]
-end
-
-def validate_position(position, board)
-  loop do
-    break if (1..9).include?(position) && !board[position - 1].is_a?(String)
-
-    puts 'Please enter valid number from 1 to 9' unless (1..9).include?(position)
-    puts "it's already taken , Please choose another position: "
-    position = gets.chomp.to_i if board[position - 1].is_a?(String)
+  def player_name
+    puts 'please enter your name player 1:'
+    player1 = gets.chomp
+    player1 = validate_name(player1)
+    puts 'please enter your name player 2'
+    player2 = gets.chomp
+    player2 = validate_name(player2)
+    [player1, player2]
   end
-  position
-end
 
-def player_response
-puts "enter any key to restart Tic Tac Toe game, to quit game enter 'q"
-answer = gets.chomp.downcase
-answer
-end
+  def validate_position(position, board)
+    loop do
+      break if (1..9).include?(position) && !board[position - 1].is_a?(String)
 
-def display_name_symbol(player1, player2)
+      puts 'Please enter valid number from 1 to 9' unless (1..9).include?(position)
+      puts "it's already taken , Please choose another position: "
+      position = gets.chomp.to_i if board[position - 1].is_a?(String)
+    end
+    position
+  end
+
+  def player_response
+    puts "enter any key to restart Tic Tac Toe game, to quit game enter 'q"
+    gets.chomp.downcase
+  end
+
+  def display_name_symbol(player1, player2)
     puts "#{player1.name} will be using '#{player1.symbol}'"
     puts "#{player2.name} will be using '#{player2.symbol}'"
   end
 
-def game_status?(game_board, current_player)
+  # rubocop:disable Metrics/MethodLength
+  def game_status?(game_board, current_player)
     if game_board.win?
       display_board(game_board.board)
       puts 'Congratulations!'
@@ -91,3 +91,4 @@ def game_status?(game_board, current_player)
     false
   end
 end
+# rubocop:enable Metrics/MethodLength

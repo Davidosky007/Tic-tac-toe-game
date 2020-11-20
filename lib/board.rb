@@ -1,3 +1,4 @@
+# Class for Board
 class Board
   attr_accessor :board
 
@@ -6,11 +7,13 @@ class Board
   end
 
   def draw?
-  @board.all? { |i| i.is_a?(String) }
-end
+    @board.all? { |i| i.is_a?(String) }
+  end
 
-def win?
-  combinations = [
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
+  def win?
+    combinations = [
       [@board[0], @board[1], @board[2]],
       [@board[3], @board[4], @board[5]],
       [@board[6], @board[7], @board[8]],
@@ -19,11 +22,13 @@ def win?
       [@board[2], @board[5], @board[8]],
       [@board[0], @board[4], @board[8]],
       [@board[2], @board[4], @board[6]]
-  ]
-  combinations.any? do |combo|
-    combo.all? { |i| i == 'X' } || combo.all? { |i| i == 'O' }
+    ]
+    combinations.any? do |combo|
+      combo.all? { |i| i == 'X' } || combo.all? { |i| i == 'O' }
+    end
   end
-  end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 
   def update_board(current_player, position, player1, player2)
     @board[position - 1] = current_player == player1 ? player1.symbol : player2.symbol
