@@ -10,8 +10,6 @@ class Board
     @board.all? { |i| i.is_a?(String) }
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def win?
     combinations = [
       [@board[0], @board[1], @board[2]],
@@ -27,8 +25,6 @@ class Board
       combo.all? { |i| i == 'X' } || combo.all? { |i| i == 'O' }
     end
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   def update_board(current_player, position, player1, player2)
     @board[position - 1] = current_player == player1 ? player1.symbol : player2.symbol

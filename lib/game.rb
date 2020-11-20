@@ -74,7 +74,6 @@ class Game
     puts "#{player2.name} will be using '#{player2.symbol}'"
   end
 
-  # rubocop:disable Metrics/MethodLength
   def game_status?(game_board, current_player)
     if game_board.win?
       display_board(game_board.board)
@@ -91,4 +90,3 @@ class Game
     false
   end
 end
-# rubocop:enable Metrics/MethodLength
