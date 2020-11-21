@@ -57,22 +57,18 @@ class Game
   end
 
   def validate_position(position, board)
-    unless (1..9).include?(position)
-      puts 'please enter a number from 1 - 9'
-      position = gets.chomp.to_i
-      loop do
-        break if (1..9).include?(position) && !board[position - 1].is_a?(String)
+    loop do
+      break if (1..9).include?(position) && !board[position - 1].is_a?(String)
 
-        puts 'Please enter valid number from 1 to 9' unless (1..9).include?(position)
-        puts "it's already taken , Please choose another position: "
-        position = gets.chomp.to_i if board[position - 1].is_a?(String)
-      end
+      print 'Please enter valid number from 1 to 9: ' unless (1..9).include?(position)
+      print "It's already taken. Please choose another position: " if board[position - 1].is_a?(String)
+      position = gets.chomp.to_i
     end
     position
   end
 
   def player_response
-    puts "enter any key to start Tic Tac Toe game, to quit game enter 'q"
+    puts "enter any key and press enter to start Tic Tac Toe game, to quit game enter 'q"
     gets.chomp.downcase
   end
 
@@ -90,7 +86,7 @@ class Game
       return true
     elsif game_board.draw?
       display_board(game_board.board)
-      puts ' The game is over! try again you might be lucky next time'
+      puts ' The game is a tie'
       puts ''
       return true
     end
