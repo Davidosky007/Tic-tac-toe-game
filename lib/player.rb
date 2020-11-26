@@ -1,4 +1,4 @@
-# Ths is Class Player
+# Ths is Class Playern_string_litera
 class Player
   attr_reader :name, :symbol
 
