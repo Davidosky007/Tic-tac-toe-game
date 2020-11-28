@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Game
   def display_board(board)
     puts ''
